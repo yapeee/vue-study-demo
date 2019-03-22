@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue中的条件渲染</title>
+	<script type="text/javascript" src="./vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div v-if="show">
+			用户名：<input key="username">
+		</div>
+		<div v-else>
+			邮箱名：<input key="password">
+		</div>
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				show: false
+			}
+		})
+		/*
+		1.v-if可放置在<template>（不可见的包裹元素）上
+		2.key管理可复用元素：设置不同key告知不复用可复用元素（避免不应该的复用）
+		3.v-show 不支持<template>元素，也不支持 v-else,作用：切换元素的 CSS 属性 display
+		4.v-if 和 v-show 的对比：v-if 是“真正”的条件渲染，能够确保组件的销毁和重建，条件为真时才开始渲染组件，v-show元素总是会被渲染，只是基于 CSS 进行切换。v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。
+		5.当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级（不推荐）
+		*/
+	</script>
+</body>
+</html>
