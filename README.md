@@ -19,3 +19,4 @@ vue基础教程
 `4-8.html`->动态组件与v-once指令<br>
 `5-1.html`->Vue中CSS动画原理<br>
 `5-2.html`->Vue中使用animate.css库令<br>
+未完待续...
