@@ -8,7 +8,7 @@
 <body>
 	<div id="root">
 		<counter :count="1" @inc='handleIncrease'></counter>
-		<counter :count="2"></counter>
+		<counter :count="2" @inc='handleIncrease'></counter>
 		<div>{{total}}</div>
 	</div>
 	<script type="text/javascript">
@@ -23,21 +23,21 @@
 			methods: {
 				handleClick: function () {
 					this.number ++
-					this.$emit('inc', 2)
+					this.$emit('inc', 1)
 				}
 			}
 		}
 		var vm = new Vue({
 			el: '#root',
 			data: {
-				total: 5
+				total: 3
 			},
 			components: {
 				counter: counter
 			},
 			methods: {
-				handleIncrease: function () {
-					alert('inc')
+				handleIncrease: function (step) {
+					this.total += step;
 				}
 			}
 		})

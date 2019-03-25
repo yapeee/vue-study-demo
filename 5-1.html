@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue中CSS动画原理</title>
+	<script type="text/javascript" src="./vue.js"></script>
+	<style type="text/css">
+		.v-enter,
+		.v-leave-to {
+			opacity: 0;
+		}
+		.v-enter-active,
+		.v-leave-active {
+			transition: opacity 1s;
+		}
+	</style>
+</head>
+<body>
+	<div id="root">
+		<transition>
+			<div v-if="show">hello world</div>
+		</transition>
+		<button @click="handleChange">change</button>
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#root',
+			data: {
+				show: false
+			},
+			methods: {
+				handleChange: function () {
+					this.show = !this.show;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

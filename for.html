@@ -40,6 +40,15 @@
 				}
 			}
 		})
+		/* 
+		1.key 要唯一、尽量不使用index（对象或数组之类的非原始类型值）
+		2.Vue 包含一组观察数组的变异方法:pop、push、shift、unshift、splice、sort、reverse方法来操作数组
+		3.替换数组
+		4.Vue 不能检测以下变动的数组：1.当你利用索引直接设置一个项时，例如：vm.items[indexOfItem] = newValue；2.当你修改数组的长度时，例如：vm.items.length = newLength
+		5.上述问题一解决办法：Vue.set(vm.items, indexOfItem, newValue)；vm.items.splice(indexOfItem, 1, newValue)；vm.$set(vm.items, indexOfItem, newValue)
+		6.上述问题二解决办法：vm.items.splice(newLength)
+		5.<template>模板占位符（不会被渲染在页面中）
+		 */
 	</script>
 </body>
 </html>
